@@ -1,0 +1,1 @@
+Boot animation is edited with [GIMP](https://www.gimp.org), editable GIMP xcf-file is included.
