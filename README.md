@@ -1,6 +1,6 @@
 # Bill of materials
 
-###Raspberry Pi
+### Raspberry Pi
 | Amount  | Item  | Total price |
 | ------------- | ------------- | ------------- |
 | 1 | [Raspberry Pi 3](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/)  | €44,95  |
