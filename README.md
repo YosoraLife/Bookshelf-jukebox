@@ -45,4 +45,5 @@ The speakers are based on the DIY speaker design "[Overnight Sensations](https:/
 |   | Subtotal | €66,99 |
 
 ### Plexamp jukebox
+| ------------- | ------------- | ------------- |
 | Total cost | €385,80 |
