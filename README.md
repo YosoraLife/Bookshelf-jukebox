@@ -7,7 +7,8 @@
 | 1 | [IQaudIO Pi-DigiAMP+](https://www.raspberrypi.com/products/digiamp-plus/) <br>Also known as Raspberry Pi DigiAMP+  | €34,95  |
 | 1 | [Waveshare 7 inch QLED Touch Display](https://aliexpress.com/item/1005004634702269.html) <br>with development board | €77,50 |
 | 1 | [NFC PN532 kit](https://aliexpress.com/item/1005005973913526.html) | €4,65 |
-|   | Subtotal | €162,05 |
+| 1 | Power supply 65W <br> the digiamp+ can take 12-24V DC, the official and recommended power supply is 19V @3.4A | €24,95 |
+|   | Subtotal | €187,00 |
 
 ### Speaker components
 The speakers are based on the DIY speaker design "[Overnight Sensations](https://sites.google.com/site/undefinition/bookshelf-speakers/diy-overnightsensations)" 
@@ -45,4 +46,4 @@ The speakers are based on the DIY speaker design "[Overnight Sensations](https:/
 |   | Subtotal | €66,99 |
 
 ### Plexamp jukebox
-Total cost: €385,80
+Total cost: €410,75
