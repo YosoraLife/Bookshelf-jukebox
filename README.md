@@ -7,8 +7,8 @@
 | 1 | [IQaudIO Pi-DigiAMP+](https://www.raspberrypi.com/products/digiamp-plus/) <br>Also known as Raspberry Pi DigiAMP+  | €34,95  |
 | 1 | [Waveshare 7 inch QLED Touch Display](https://aliexpress.com/item/1005004634702269.html) <br>with development board | €77,50 |
 | 1 | [NFC PN532 kit](https://aliexpress.com/item/1005005973913526.html) | €4,65 |
-| 1 | Power supply 65W <br> the digiamp+ can take 12-24V DC, the official and recommended power supply is 19V @3.4A | €24,95 |
-|   | Subtotal | €187,00 |
+| 1 | Power supply 65W <br> the digiamp+ can take 12-24V DC, the official and <br>recommended power supply is 19V @3.4A | €24,95 |
+|   | **Subtotal** | **€187,00** |
 
 ### Speaker components
 The speakers are based on the DIY speaker design "[Overnight Sensations](https://sites.google.com/site/undefinition/bookshelf-speakers/diy-overnightsensations)" 
@@ -27,7 +27,7 @@ The speakers are based on the DIY speaker design "[Overnight Sensations](https:/
 | 2 | [Perforated PCB](https://www.soundimports.eu/nl/320-470.html) <br>Alternative: [Crossover PCB for the Overnight Sensations](https://www.ebay.com/itm/283420027089) | €5,90 <br> $20,00 (€18,70)|
 | 1 | [Speaker damping](https://www.soundimports.eu/nl/monacor-mdm-2.html) | €10,45 |
 | 1 | [Foam sealing tape](https://www.soundimports.eu/nl/gasketing-tape-1-2.html) | €17,45 |
-|   | Subtotal | €156,76 |
+|   | **Subtotal** | **€156,76** |
 
 ### Miscellaneous
 | Amount  | Item  | Total price |
@@ -43,7 +43,7 @@ The speakers are based on the DIY speaker design "[Overnight Sensations](https:/
 | 1 | [PCB terminal](https://aliexpress.com/item/1005003373535370.html) <br>minimum order of 10, only 1 needed | €1,45 |
 | 1 | [Braided heat shrink cable sleeve](https://aliexpress.com/item/1005006219473493.html) <br>diameter 6mm, length 3m | €2,95 |
 | 1 | [5.5x2.5mm panel mounted DC connector](https://aliexpress.com/item/4000694128319.html) | €2,05 |
-|   | Subtotal | €66,99 |
+|   | **Subtotal** | **€66,99** |
 
 ### Plexamp jukebox
-Total cost: €410,75
+**Total cost: €410,75**
