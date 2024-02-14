@@ -26,24 +26,25 @@ The speakers are based on the DIY speaker design "[Overnight Sensations](https:/
 | 2	| [HiVi B4N Aluminum Midbass](https://www.soundimports.eu/en/hivi-b4n.html) | €44,90 |
 | 2 | [Perforated PCB](https://www.soundimports.eu/nl/320-470.html) <br>Alternative: [Crossover PCB for the Overnight Sensations](https://www.ebay.com/itm/283420027089) | €5,90 <br> $20,00 (€18,70)|
 | 1 | [Speaker damping](https://www.soundimports.eu/nl/monacor-mdm-2.html) | €10,45 |
-| 1 | [Foam sealing tape](https://www.soundimports.eu/nl/gasketing-tape-1-2.html) | €17,45 |
-|   | **Subtotal** | **€156,76** |
+|   | **Subtotal** | **€139,31** |
 
 ### Miscellaneous
 | Amount  | Item  | Total price |
 | ------------- | ------------- | ------------- |
 | 1 | Elm wood plank 20x160x1,8cm | €21,45 |
 | 1 | MDF 61c122x1,8cm | €16,49 |
+| 2 | 2m loudspeaker cable 1,5mm2 | €6,20 |
 | 2 | [TTP223 Touch-Knop Module](https://aliexpress.com/item/1005005981286756.html) <br>minimum order of 10, only 2 needed | €0,94 (10st) |
 | 1 | [Rotary Encoder](https://aliexpress.com/item/33039321968.html) | €1,94 |
+| 1 | [Rimini knob - matt brass 50mm](https://allegreepjes.nl/rimini-knop-mat-messing-50-mm.html) | €19,21 |
 | 1 | [22mm metal toggle switch](https://aliexpress.com/item/1005005918066040.html) | €4,10 |
 | 1 | [Speaker stands](https://aliexpress.com/item/4000427279953.html) | €8,59 |
 | 1 | [Self-adhesive speakerwire foam](https://aliexpress.com/item/1005006204882391.html) | €2,23 |
-| 1 | [2x20pin Dupont connector + terminals](https://aliexpress.com/item/32951306845.html) <br>minimum order of 20 2x20 connectors + 100 terminals | €4,80 (20st + 100 terminals) |
+| 1 | [2x20pin Dupont connectors + terminals](https://aliexpress.com/item/32951306845.html) | €4,30 |
 | 1 | [PCB terminal](https://aliexpress.com/item/1005003373535370.html) <br>minimum order of 10, only 1 needed | €1,45 |
 | 1 | [Braided heat shrink cable sleeve](https://aliexpress.com/item/1005006219473493.html) <br>diameter 6mm, length 3m | €2,95 |
-| 1 | [5.5x2.5mm panel mounted DC connector](https://aliexpress.com/item/4000694128319.html) | €2,05 |
-|   | **Subtotal** | **€66,99** |
+| 1 | [5.5x2.5mm panel mounted DC connector](https://aliexpress.com/item/4000694128319.html) | €0,75 |
+|   | **Subtotal** | **€90,60** |
 
 ### Plexamp jukebox
-**Total cost: €410,75**
+**Total cost: €417,91**
