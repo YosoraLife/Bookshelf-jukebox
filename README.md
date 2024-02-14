@@ -6,8 +6,8 @@
 | 1 | [Raspberry Pi 3](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/)  | €44,95  |
 | 1 | [IQaudIO Pi-DigiAMP+](https://www.raspberrypi.com/products/digiamp-plus/) <br>Also known as Raspberry Pi DigiAMP+  | €34,95  |
 | 1 | [Waveshare 7 inch QLED Touch Display](https://aliexpress.com/item/1005004634702269.html) <br>with development board | €77,50 |
-| 1 | [NFC PN532 kit](https://aliexpress.com/item/1005005973913526.html) | €6,00 |
-|   | Subtotal | €163,40 |
+| 1 | [NFC PN532 kit](https://aliexpress.com/item/1005005973913526.html) | €4,65 |
+|   | Subtotal | €162,05 |
 
 ### Speaker components
 The speakers are based on the DIY speaker design "[Overnight Sensations](https://sites.google.com/site/undefinition/bookshelf-speakers/diy-overnightsensations)" 
@@ -38,11 +38,11 @@ The speakers are based on the DIY speaker design "[Overnight Sensations](https:/
 | 1 | [22mm metal toggle switch](https://aliexpress.com/item/1005005918066040.html) | €4,10 |
 | 1 | [Speaker stands](https://aliexpress.com/item/4000427279953.html) | €8,59 |
 | 1 | [Self-adhesive speakerwire foam](https://aliexpress.com/item/1005006204882391.html) | €2,23 |
-| 1 | [2x20pin Dupont connector + terminals](https://aliexpress.com/item/32951306845.html) <br>minimun order of 20 2x20 connectors + 100 terminals | €4,80 (20st + 100 terminals) |
+| 1 | [2x20pin Dupont connector + terminals](https://aliexpress.com/item/32951306845.html) <br>minimum order of 20 2x20 connectors + 100 terminals | €4,80 (20st + 100 terminals) |
 | 1 | [PCB terminal](https://aliexpress.com/item/1005003373535370.html) <br>minimum order of 10, only 1 needed | €1,45 |
 | 1 | [Braided heat shrink cable sleeve](https://aliexpress.com/item/1005006219473493.html) <br>diameter 6mm, length 3m | €2,95 |
 | 1 | [5.5x2.5mm panel mounted DC connector](https://aliexpress.com/item/4000694128319.html) | €2,05 |
 |   | Subtotal | €66,99 |
 
 ### Plexamp jukebox
-| Total cost | €387,15 |
+| Total cost | €385,80 |
