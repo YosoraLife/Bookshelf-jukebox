@@ -1,8 +1,0 @@
-[Plymouth Theme]
-Name=plexamp-theme
-Description=plexamp Splash theme
-ModuleName=script
-
-[script]
-ImageDir=/usr/share/plymouth/themes/plexamp-theme
-ScriptFile=/usr/share/plymouth/themes/plexamp-theme/plexamp.script
