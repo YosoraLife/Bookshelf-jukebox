@@ -7,7 +7,7 @@
 | 1 | [IQaudIO Pi-DigiAMP+](https://www.raspberrypi.com/products/digiamp-plus/) <br>Also known as Raspberry Pi DigiAMP+  | €34,95  |
 | 1 | [Waveshare 7 inch QLED Touch Display](https://aliexpress.com/item/1005004634702269.html) <br>with development board | €77,50 |
 | 1 | [NFC PN532 kit](https://aliexpress.com/item/1005005973913526.html) | €4,65 |
-| 1 | Power supply 65W <br> the digiamp+ can take 12-24V DC, the official and <br>recommended power supply is 19V @3.4A | €24,95 |
+| 1 | Power supply 65W <br> the digiamp+ can take 12-24V DC, the official and <br>recommended power supply is 19V @3.4A| €24,95 |
 |   | **Subtotal** | **€187,00** |
 
 ### Speaker components
@@ -33,7 +33,7 @@ The speakers are based on the DIY speaker design "[Overnight Sensations](https:/
 | ------------- | ------------- | ------------- |
 | 1 | Elm wood plank 20x160x1,8cm | €21,45 |
 | 1 | MDF 61c122x1,8cm | €16,49 |
-| 2 | 2m loudspeaker cable 1,5mm2 | €6,20 |
+| 2 | 2m loudspeaker cable 1,5mm2 | €6,00 |
 | 2 | [TTP223 Touch-Knop Module](https://aliexpress.com/item/1005005981286756.html) <br>minimum order of 10, only 2 needed | €0,94 (10st) |
 | 1 | [Rotary Encoder](https://aliexpress.com/item/33039321968.html) | €1,94 |
 | 1 | [Rimini knob - matt brass 50mm](https://allegreepjes.nl/rimini-knop-mat-messing-50-mm.html) | €19,21 |
@@ -44,7 +44,9 @@ The speakers are based on the DIY speaker design "[Overnight Sensations](https:/
 | 1 | [PCB terminal](https://aliexpress.com/item/1005003373535370.html) <br>minimum order of 10, only 1 needed | €1,45 |
 | 1 | [Braided heat shrink cable sleeve](https://aliexpress.com/item/1005006219473493.html) <br>diameter 6mm, length 3m | €2,95 |
 | 1 | [5.5x2.5mm panel mounted DC connector](https://aliexpress.com/item/4000694128319.html) | €0,75 |
-|   | **Subtotal** | **€90,60** |
+| 1 | [CAT6 ethernet panel mounted connector](https://aliexpress.com/item/1005005363341111.html) | €2,73 |
+| 1 | [Rubio Monocoat Oil Plus 2C Pure 100+30ml](https://www.rubiomonocoat.nl/oil-plus-2c) | €30,45 |
+|   | **Subtotal** | **€123,58** |
 
 ### Plexamp jukebox
-**Total cost: €417,91**
+**Total cost: €449,89**
