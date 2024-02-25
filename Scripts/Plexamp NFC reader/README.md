@@ -7,15 +7,19 @@ NFC cards can be writen from within the Plexamp mobile app. This will write the 
 ## Prerequisites
 This code is tested, and meant to be used with:
 
--  a Mifare Classic 1K card/tag
+- Raspberry Pi 3 with Raspberry Pi OS 64bit
+- A S50 Mifare Classic 1K NFC compatible tag:
+ - [S50 Mifare Classic 1K card](https://aliexpress.com/item/1005006282512971.html)
+ - [S50 Mifare Classic 1K FOB](https://aliexpress.com/item/1005006029241048.html)
+ - [S50 Mifare Classic 1K sticker](https://aliexpress.com/item/1005005823042872.html)
 - a [Elechouse PN532 V3 NFC/RFID card reader](https://aliexpress.com/item/1005005973913526.html)
 
 ------------
 
-## Installation of PN532 hardware on Raspberry Pi
+##Installation of PN532 hardware on Raspberry Pi
 The PN532 has 3 connection modes, SPI, HSU and I2C. For this usecase the I2C connection is exclusively used by the IQaudio DigiAMP+ and therefore not avaible for use with the PN532. Luckily there are 2 other ways, SPI and HSU:
 
-### ...in SPI mode (recommended)
+###...in SPI mode (recommended)
 
 Install dependent packages:
 ```bash
@@ -107,7 +111,7 @@ When you can do a succesfull nfc-poll you can continue with [installing the pn53
 source: https://osoyoo.com/2017/07/20/pn532-nfc-rfid-module-for-raspberry-pi/
 
 
-### ...in HSU mode
+###...in HSU mode
 
 Install dependent packages:
 ```bash
@@ -163,3 +167,10 @@ pn53x_check_communication error: Try swapping the RX and TX wires
 When you can do a succesfull nfc-poll you can continue with [installing the pn532pi library]()
 
 source: https://cdn-learn.adafruit.com/downloads/pdf/adafruit-nfc-rfid-on-raspberry-pi.pdf
+
+## Installing the Plexamp NFC reader script
+
+Install python dependent packages:
+```bash
+pip install pn532pi curlify requests time
+```
