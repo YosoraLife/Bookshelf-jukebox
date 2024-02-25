@@ -16,10 +16,10 @@ This code is tested, and meant to be used with:
 
 ------------
 
-##Installation of PN532 hardware on Raspberry Pi
+## Installation of PN532 hardware on Raspberry Pi
 The PN532 has 3 connection modes, SPI, HSU and I2C. For this usecase the I2C connection is exclusively used by the IQaudio DigiAMP+ and therefore not avaible for use with the PN532. Luckily there are 2 other ways, SPI and HSU:
 
-###...in SPI mode (recommended)
+### ...in SPI mode (recommended)
 
 Install dependent packages:
 ```bash
