@@ -1,10 +1,30 @@
-# Prerequisites
+# Installation instructions Plexamp jukebox
+
+[TOC]
+
+## Prerequisites
+### Plex
 This installation asummes that you have an active Plex server. [Plex](https://www.plex.tv) is software to manage your personal media collection (Movies, TV series and Music). Plex consist of 2 parts, a central server (Plex Media Server) to manage and stream the media. And the client to play the media. This installation uses Plex dedicated music player called Plexamp for the playback of music. To be able to use the headless version of Plexamp you do need an paid PlexPass subscription.
 
-# Installation of the hardware
+### NFC reader
+The NFC reader was a bit tricky to setup, this code is tested, and meant to be used with:
+
+- A S50 Mifare Classic 1K NFC compatible [card](https://aliexpress.com/item/1005006282512971.html), [sticker](https://aliexpress.com/item/1005005823042872.html) or [FOB](https://aliexpress.com/item/1005006029241048.html) :
+- a [Elechouse PN532 V3 NFC/RFID card reader](https://aliexpress.com/item/1005005973913526.html)
+
+## Wiring
+The IQaudio DigiAMP+ is connected directly to the Raspberry Pi GPIO header. The power is provided to the IQaudio DigiAMP+ (12-24V DC) that in its turn also provides power to your Raspberry Pi itself. The IQaudio DigiAMP+ also provide GPIO passthrough.
+
+The NFC reader, rotary encoder and 2 touch buttons need to be wired according to following GPIO pins:
+
+<img src="https://gitlab.com/YosoraLife/plexamp-jukebox/-/raw/main/_Resources/plexamp-jukebox-wiring.png"/>
+For reference pin 1 is on the SD card side and pin 40 is on the USB side.
+
+
+## Installation of the hardware
 Use the [Raspberry Pi Imager](https://www.raspberrypi.com/software/) to flash Raspberry Pi OS (legacy, 64bit) Lite to an SD card. 
 
-<img src="https://gitlab.com/YosoraLife/plexamp-jukebox/-/raw/main/_Resources/RPI_settings.png" style="float: right" width="200"/>
+<img src="https://gitlab.com/YosoraLife/plexamp-jukebox/-/raw/main/_Resources/RPI_settings.png" width="300"/>
 
 During installation you will get prompted to apply your own settings on the OS.
 - setup hostname
@@ -31,12 +51,13 @@ System options > S5 Boot / Auto login > B4 Desktop Autologin
 
 - Reboot the Raspberry Pi.
 
-### Enable IQAudio DAC+ and Waveshare Qled display:
+### Enable IQaudio DigiAMP+ and Waveshare Qled display:
 ```bash
 sudo nano /boot/config.txt
 ```
-##### For IQAudio DAC +:
-  <sub>nb: Consult the documentation if you use a different audiocard, or skip if you dont use a seperate audiocard.</sub>
+#### IQaudio DigiAMP+:
+<sub>nb: IQaudio DigiAMP+ and Raspberry Pi DigiAMP+ are the same  audiocard.</sub>
+<sub>nb: Consult the documentation if you use a different audiocard, or skip if you dont use a seperate audiocard.</sub>
   - Disable the default Raspberry Pi audiocard:
 Find:
 ```bash
@@ -72,7 +93,7 @@ And uncomment:
 dtparam=spi=on
 ```
 
-##### For Waveshare Qled display:
+#### Waveshare Qled display:
 <sub>nb: Consult the documentation if you use a different screen</sub>
 
  - Add to the bottom:
@@ -92,7 +113,47 @@ Reboot the Raspberry Pi:
 sudo reboot now
 ```
 
-# Installation of (headless) Plexamp
+### Install NFC reader
+
+Install dependent packages:
+```bash
+sudo apt-get  install git autoconf libtool libusb-dev
+```
+
+Download the source code package of libnfc
+```bash
+cd ~
+git clone https://github.com/nfc-tools/libnfc
+```
+
+Write the configuration file for NFC communication
+```bash
+sudo mkdir -p /etc/nfc/devices.d
+cd libnfc
+sudo cp contrib/libnfc/pn532_spi_on_rpi_3.conf.sample /etc/nfc/devices.d/pn532_spi_on_rpi_3.conf
+```
+
+Compile and install libnfc.
+```bash
+autoreconf -vis
+./configure --with-drivers=pn532_spi --sysconfdir=/etc --prefix=/usr
+make
+sudo make install all
+```
+
+#### Testing
+Check if NFC module is found
+```bash
+nfc-list
+```
+
+Run nfc-poll to scan the RFID tag and you can read information on the card
+```bash
+nfc-poll
+```
+<img src="https://gitlab.com/YosoraLife/plexamp-jukebox/-/raw/main/_Resources/nfc-test.png" width="500"/>
+
+## Installation of (headless) Plexamp
 ### Install NodeJS:
 ```bash
 sudo apt-get install -y ca-certificates curl gnupg && sudo mkdir -p /etc/apt/keyrings
@@ -156,16 +217,29 @@ sudo systemctl enable plexamp
 sudo systemctl start plexamp
 ```
 
-### Open Plexamp in kioskmode at boot
-Note: I like to use Thorium as webbrowser. Thorium is a chromium based webbrowser thats is optimized to be as quick and light as possible.
-
-Install chromium as webbrowser and tools
+## Install Plexamp jukebox controls
+Install tools
 ```bash
-sudo apt install chromium-browser unclutter xdotool
+sudo apt install chromium-browser unclutter xdotool pip
 ```
 
-
-Make it excecutable:
+Install python dependent packages:
 ```bash
-chmod u+x ~/kiosk.sh
+pip install pn532pi curlify requests
+```
+
+Download the jukebox scripts:
+```bash
+cd ~
+git clone https://gitlab.com/YosoraLife/plexamp-jukebox
+cd plexamp-jukebox
+```
+
+Enable the startup script and start:
+```bash
+chmod u+x ~/plexamp-startup.sh
+sudo cp jukebox.service /lib/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable jukebox
+sudo systemctl start jukebox
 ```
