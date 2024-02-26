@@ -17,7 +17,7 @@ The IQaudio DigiAMP+ is connected directly to the Raspberry Pi GPIO header. The 
 
 The NFC reader, rotary encoder and 2 touch buttons need to be wired according to following GPIO pins:
 
-<img src="https://gitlab.com/YosoraLife/plexamp-jukebox/-/raw/main/_Resources/plexamp-jukebox-wiring.png"/>
+<img src="https://gitlab.com/YosoraLife/plexamp-jukebox/-/raw/main/_Resources/plexamp-jukebox-wiring.png" width="600"/>
 For reference pin 1 is on the SD card side and pin 40 is on the USB side.
 
 
