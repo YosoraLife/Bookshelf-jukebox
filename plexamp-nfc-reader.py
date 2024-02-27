@@ -116,7 +116,7 @@ if __name__ == '__main__':
 
         # Open the link
         response = requests.get(data_string)
-        print(curlify.to_curl(response.request))
+        # print(curlify.to_curl(response.request))
 
         # Sleep for 3 seconds
         time.sleep(3)

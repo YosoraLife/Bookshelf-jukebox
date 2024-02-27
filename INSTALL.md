@@ -16,7 +16,7 @@ The NFC reader was a bit tricky to setup, this code is tested, and meant to be u
 Take a look at the [Bill of Materials](/BOM.md) for a complete list of materials. Building plans for the jukebox itself can be found [here](/Building%20plans/Plexamp%20jukebox%20buildplan.pdf), and building plans for the speakers crossovers can be found [here](/Building%20plans/Speaker%20cross-over%20buildplan.jpg).
 
 ## Wiring
-The IQaudio DigiAMP+ is connected directly to the Raspberry Pi GPIO header. The power is provided to the IQaudio DigiAMP+ (12-24V DC) that in its turn also provides power to your Raspberry Pi itself. The IQaudio DigiAMP+ also provide GPIO passthrough.
+The IQaudio DigiAMP+ is connected directly to the Raspberry Pi GPIO header. The power is provided to the IQaudio DigiAMP+ (12-24V DC) that in its turn also provides power to the Raspberry Pi itself. The IQaudio DigiAMP+ also provide GPIO passthrough.
 
 The NFC reader, rotary encoder and 2 touch buttons need to be wired according to following GPIO pins:
 
