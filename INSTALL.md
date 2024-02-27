@@ -12,14 +12,18 @@ The NFC reader was a bit tricky to setup, this code is tested, and meant to be u
 - A S50 Mifare Classic 1K NFC compatible [card](https://aliexpress.com/item/1005006282512971.html), [sticker](https://aliexpress.com/item/1005005823042872.html) or [FOB](https://aliexpress.com/item/1005006029241048.html) :
 - a [Elechouse PN532 V3 NFC/RFID card reader](https://aliexpress.com/item/1005005973913526.html)
 
+### Jukebox
+Take a look at the [Bill of Materials](/BOM.md) for a complete list of materials. Building plans for the jukebox itself can be found [here](/Building%20plans/Plexamp%20jukebox%20buildplan.pdf), and building plans for the speakers crossovers can be found [here](/Building%20plans/Speaker%20cross-over%20buildplan.jpg).
+
 ## Wiring
 The IQaudio DigiAMP+ is connected directly to the Raspberry Pi GPIO header. The power is provided to the IQaudio DigiAMP+ (12-24V DC) that in its turn also provides power to your Raspberry Pi itself. The IQaudio DigiAMP+ also provide GPIO passthrough.
 
 The NFC reader, rotary encoder and 2 touch buttons need to be wired according to following GPIO pins:
 
-<img src="https://gitlab.com/YosoraLife/plexamp-jukebox/-/raw/main/_Resources/plexamp-jukebox-wiring.png" width="800"/>
-
+<img src="https://gitlab.com/YosoraLife/plexamp-jukebox/-/raw/main/_Resources/plexamp-jukebox-wiring.png" width="600"/>
 For reference pin 1 is on the SD card side and pin 40 is on the USB side.
+
+Note: The rotery button (sw) is connected BOTH to pin 5 and pin 29. When the Raspberry Pi is powered off it can be turned on by connecting pin 5 to ground. But when the Raspberry Pi is powered on pin 5 is exclusively used by the DAC and can therefore pin 29 is used instead.
 
 
 ## Installation of the hardware
@@ -114,7 +118,7 @@ Reboot the Raspberry Pi:
 sudo reboot now
 ```
 
-### Install NFC reader
+### Install of the NFC reader
 
 Install dependent packages:
 ```bash
@@ -221,7 +225,7 @@ sudo systemctl start plexamp
 ## Install Plexamp jukebox controls
 Install tools
 ```bash
-sudo apt install chromium-browser unclutter xdotool pip
+sudo apt install chromium-browser unclutter xdotool python3 pip
 ```
 
 Install python dependent packages:
@@ -236,7 +240,7 @@ git clone https://gitlab.com/YosoraLife/plexamp-jukebox
 cd plexamp-jukebox
 ```
 
-Enable the startup script and start:
+Enable the startup script and start it:
 ```bash
 chmod u+x ~/plexamp-startup.sh
 sudo cp jukebox.service /lib/systemd/system/
