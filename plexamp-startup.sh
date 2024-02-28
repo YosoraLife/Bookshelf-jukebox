@@ -5,9 +5,6 @@ xset s noblank
 xset s off
 xset -dpms
 
-# Disable mouse
-unclutter -root &
-
 # Subpress the warning baar
 sed -i 's/"exited_cleanly":false/"exited_cleanly":true/' /home/$USER/.config/thorium/Default/Preferences
 sed -i 's/"exit_type":"Crashed"/"exit_type":"Normal"/' /home/$USER/.config/thorium/Default/Preferences
