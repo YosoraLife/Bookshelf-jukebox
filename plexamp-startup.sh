@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Set display
+export DISPLAY=:0.0
+
 # Disable display power management
 xset s noblank
 xset s off
