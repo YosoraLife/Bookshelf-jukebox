@@ -7,7 +7,7 @@ After=graphical.target
 Environment=DISPLAY=:0.0
 Environment=XAUTHORITY=/home/pi/.Xauthority
 Type=simple
-ExecStart=/bin/bash /home/pi/plexamp-startup.sh
+ExecStart=/bin/bash /home/pi/plexamp-jukebox/plexamp-startup.sh
 Restart=on-abort
 User=pi
 Group=pi
