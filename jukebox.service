@@ -1,16 +1,10 @@
 [Unit]
 Description=Plexamp jukebox
-Wants=graphical.target
-After=graphical.target
+After=multi-user.target
 
 [Service]
-Environment=DISPLAY=:0.0
-Environment=XAUTHORITY=/home/pi/.Xauthority
-Type=simple
+Type=idle
 ExecStart=/bin/bash /home/pi/plexamp-jukebox/plexamp-startup.sh
-Restart=on-abort
-User=pi
-Group=pi
 
 [Install]
-WantedBy=graphical.target
+WantedBy=multi-user.target

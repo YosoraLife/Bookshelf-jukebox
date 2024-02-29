@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 """
     This code is tested, and meant to be used with:
     - a Mifare Classic 1K card
@@ -24,10 +26,11 @@ from pn532pi import Pn532Spi
 SPI = True
 HSU = False
 
+# Config when the NFC reader is connected through SPI mode
 if SPI:
     PN532_SPI = Pn532Spi(Pn532Spi.SS0_GPIO8)
     nfc = Pn532(PN532_SPI)
-# When the number after #elif set as 1, it will be switch to HSU Mode
+# Config when the NFC reader is connected through HSU Mode
 elif HSU:
     PN532_HSU = Pn532Hsu(Pn532Hsu.RPI_MINI_UART)
     nfc = Pn532(PN532_HSU)
@@ -39,7 +42,7 @@ def setup():
   if not versiondata:
     raise RuntimeError("Didn't find PN53x board")  # halt
 
-  # configure board to read RFID tags
+  # Configure board to read RFID tags
   nfc.SAMConfig()      
 
 

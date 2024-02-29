@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 # Plexamp Jukebox controls
 
 import RPi.GPIO as GPIO

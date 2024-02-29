@@ -15,8 +15,8 @@ sed -i 's/"exit_type":"Crashed"/"exit_type":"Normal"/' /home/$USER/.config/thori
 # Open a single tab
 /usr/bin/thorium-browser --noerrdialogs --disable-infobars --kiosk http://localhost:32500/ &
 
-python3 /home/$USER/plexamp-jukebox/plexamp-controls.py &
-python3 /home/$USER/plexamp-jukebox/plexamp-nfc-reader.py &
+/usr/bin/python3 /home/$USER/plexamp-jukebox/plexamp-controls.py &
+/usr/bin/python3 /home/$USER/plexamp-jukebox/plexamp-nfc-reader.py &
 
 # Allow switching between tabs on buttonpress
 # /usr/bin/chromium-browser --noerrdialogs --disable-infobars --kiosk http://localhost:32500/ http://localhost/settings &
