@@ -223,16 +223,6 @@ sudo systemctl start plexamp
 ```
 
 ## Install Plexamp jukebox controls
-Install tools
-```bash
-sudo apt install chromium-browser unclutter xdotool python3 pip
-```
-
-Install python dependent packages:
-```bash
-pip install pn532pi curlify requests
-```
-
 Download the jukebox scripts:
 ```bash
 cd ~
@@ -240,11 +230,154 @@ git clone https://gitlab.com/YosoraLife/plexamp-jukebox
 cd plexamp-jukebox
 ```
 
-Enable the startup script and start it:
+Install tools
 ```bash
-chmod u+x ~/plexamp-startup.sh
-sudo cp jukebox.service /lib/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable jukebox
-sudo systemctl start jukebox
+sudo apt install xdotool python3 pip
+pip install pn532pi curlify requests
 ```
+
+Setup desktop:
+```bash
+sudo nano ~/.config/pcmanfm/LXDE-pi/desktop-items-0.conf
+```
+And change the following lines from:
+```bash
+wallpaper=/usr/share/rpd-wallpaper/clouds.jpg
+show_documents=1
+show_trash=1
+show_mounts=1
+```
+to:
+```bash
+wallpaper=/home/pi/plexamp-jukebox/plexamp-splash.png
+show_documents=0
+show_trash=0
+show_mounts=0
+```
+note: For the wallpaper change `pi` to your own username.
+Save flie by ctrl+x > Yes
+
+Disable menubar, screensaver, screenlock and mousepointer
+```bash
+sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+sudo sed -i -- "s/#xserver-command=X/xserver-command=X -nocursor/" /etc/lightdm/lightdm.conf
+```
+Make the content of the file look like this
+```bash
+# @lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+# @xscreensaver -no-splash
+@xset s 0 0
+@xset s noblank
+@xset s noexpose
+@xset dpms 0 0 0
+```
+Save file by ctrl+x > Yes
+
+Change splash screen:
+```bash
+sudo nano /boot/config.txt
+```
+add to the bottom:
+```bash
+disable_splash=1
+```
+Save file by ctrl+x > Yes
+
+```bash
+sudo nano /boot/cmdline.txt
+```
+replace: 
+`console=tty1` with `console=tty3`
+
+Add to the end of the line:
+(make sure there is a space between the end of the line and the added values)
+```bash
+splash quiet plymouth.ignore-serial-consoles logo.nologo vt.global_cursor_default=0
+```
+Save file by ctrl+x > Yes
+
+```bash
+sudo cp ~/plexamp-jukebox/plexamp-splash.png /usr/share/plymouth/themes/pix/splash.png
+```
+
+**Enable autoplay on boot**
+By default Plexamp doesnt start playing until music is choosen. You can enable the script to autoplay the (general) Library radio.
+
+In a webbrowser go to the following page on you **Plex Media Server** and find the *machineIdentifier*
+```bash
+http://[IP address]:32400/identity/
+```
+Edit the Plexamp controls:
+```bash
+cd ~/plexamp-jukebox
+sudo nano plexamp-controls.py
+```
+
+Find the line `PLEX_ID = ''` and put your machineIdentifier between the quotes.
+On the next 2 lines you can enable/disable autoplay and set te initial starting volume when autoplay. 
+
+
+**Thorium**
+The installation of Plexamp is headless, meaning without an graphical user interface (GUI). Yet through a webbrowser you can still access the GUI and control Plexamp. As webbrowser i decided to use [Thorium](https://thorium.rocks). Thorium is a optimized version of Chromium.
+
+Thorium is not without controversy though. More about this controversy [here](https://www.youtube.com/watch?v=Q-02fW-n4qg). Still I decided to use Thorium, why? First of all I believe the developer of Thorium made a mistake which he since then rectified. Secondly, and for me most importantly is (in my opinioun) the speed of Thorium unmatched compaired to Chromium.
+
+Would you rather want to use chromium instead? You can use the command: `sudo apt install chromium-browser` . 
+
+Install Thorium
+```bash
+wget -c https://github.com/Alex313031/Thorium-Raspi/releases/download/M121.0.6167.204/thorium-browser_121.0.6167.204_arm64.deb -O thorium-browser.deb
+sudo apt install ./thorium-browser.deb
+```
+
+Setting up the startup script:
+
+Did you decide to use the Chromium browser instead of Thorium? Then you should edit the startup script with: `sudo nano plexamp-startup.sh`. Change the references to `thorium` into `chromium` (2x) and `thorium-browser` into `chromium-browser` (1x).
+
+Enable the startup script and make it start at boot:
+```bash
+cd ~/plexamp-jukebox
+chmod u+x plexamp-startup.sh
+crontab -e 
+```
+
+Add to the bottom:
+```bash
+@reboot sleep 45 &&  /usr/bin/sh /home/pi/plexamp-jukebox/plexamp-startup.sh &
+```
+note: Change `pi` to your own username. And save file by ctrl+x > Yes.
+
+Reboot system:
+```bash
+sudo reboot now
+```
+
+## First login
+After the Raspberry Pi is booted up you should now see the "Welcome to Plexamp" screen. If you use the same screen as i do, the button to continue will be just out of sight. Since we need to do a (one time) login anyway the easiest way is to attach a keyboard to the Raspberry Pi.
+
+Use ctrl and the minus key (-) to zoom out until you see the buttons. Now continue and login to Plexamp.
+
+After login in you can use the ctrl and the plus key (+) to zoom uit till 100% again. You can now detach the keyboard and enjoy your Plexamp jukebox.
+
+## Setup auto-update
+Install tools:
+```bash
+sudo apt install jq
+```
+
+Check for update (one time):
+```bash
+sh plexamp/upgrade.sh
+```
+
+Setup a weekly update run with crontab:
+```bash
+crontab -e
+```
+
+Add to the bottom:
+```bash
+@weekly /usr/bin/sh /home/pi/plexamp/upgrade.sh &
+```
+note: Change `pi` to your own username. And save file by ctrl+x > Yes.
