@@ -36,13 +36,20 @@ elif HSU:
     nfc = Pn532(PN532_HSU)
 
 def setup():
-  nfc.begin()
+  # Set variable to check if NFC module is found
+  modulefound = False
+  # Keep looping until module is found
+  while (not modulefound):
+    nfc.begin()
+    versiondata = nfc.getFirmwareVersion()
+    # Check if version is found
+    if (versiondata):
+      # Module is found, break loop
+      modulefound = True
+    else:
+      # wait a second for the next check
+      time.sleep(1)
 
-  versiondata = nfc.getFirmwareVersion()
-  if not versiondata:
-    raise RuntimeError("Didn't find PN53x board")  # halt
-
-  # Configure board to read RFID tags
   nfc.SAMConfig()      
 
 
@@ -119,7 +126,7 @@ if __name__ == '__main__':
 
         # Open the link
         response = requests.get(data_string)
-        # print(curlify.to_curl(response.request))
+        print(curlify.to_curl(response.request))
 
         # Sleep for 3 seconds
         time.sleep(3)
