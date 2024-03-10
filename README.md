@@ -15,10 +15,16 @@ But then I heard about an upcoming feature there working on at Plex, whole home 
 This jukebox is based on the DIY speakers called "[Overnight Sensations](https://sites.google.com/site/undefinition/bookshelf-speakers/diy-overnightsensations)". Those speakers are powered by a Raspbarry Pi with a high quality DAC and Amplifier. The jukebox itself has both physical controls as well as a touchscreen to interface with Plexamp. Futhermore I included a NFC reader. This way I can scan a CD case with NFC sticker to play that CD on Plexamp, or setup NFC cards for different playlists based on my mood. 
 
 #### Costs
-The total costs for this build came around €450. See the [Bill of Materials](/BOM.md) for a complete specification. 
+The total costs for this build came around €460. See the [Bill of Materials](/BOM.md) for a complete specification. 
 
 #### Buildingplans
 The building plans for the jukebox itself can be found [here](/Building%20plans/Plexamp%20jukebox%20buildplan.pdf), and building plans for the speakers crossovers can be found [here](/Building%20plans/Speaker%20cross-over%20buildplan.jpg).
 
 #### Installation instructions
 And the installation instructions can be found [here](/INSTALL.md).
+
+#### Specifications speakers
+Power handling: 25 watts RMS/50 watts max 
+Impedance: 8 ohms
+Frequency response: 45-20,000 Hz (-3 dB)
+Sensitivity: 83 dB 1W/1m
