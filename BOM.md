@@ -62,12 +62,12 @@ But even with a supply voltage of 24V the IQaudio DigiAmp+ is slightly underpowe
 
 | Power supply voltage | Output power, 8 ohms | 1m listing distance  | 4m listing distance |
 | ------------- | ------------- | ------------- | ------------- |
-| 19V | 2x 21,3 watts | 96,3dB | 84,3dB |
-| 24V | 2x 36 watts | 98,6dB | 86,6dB |
+| 19V | (2x) 21,3 watts | 96,3dB | 84,3dB |
+| 24V | (2x) 36 watts | 98,6dB | 86,6dB |
 
 For reference, sounds above 85dB are considered harmfull, while normal level to listen to music would be more around 70dB.
 
 Resources:
-[Choosing the right amplifier for your speakers](https://www.gear4music.com/blog/choosing-the-right-amplifier-for-your-speakers/)
-[TAS5756M Class-D Amplifier](https://www.ti.com/lit/ds/symlink/tas5756m.pdf?ts=1710011633785&ref_url=https%253A%252F%252Fforums.raspberrypi.com%252F)
+[Choosing the right amplifier for your speakers](https://www.gear4music.com/blog/choosing-the-right-amplifier-for-your-speakers/)<br>
+[TAS5756M Class-D Amplifier](https://www.ti.com/lit/ds/symlink/tas5756m.pdf?ts=1710011633785&ref_url=https%253A%252F%252Fforums.raspberrypi.com%252F)<br>
 [Understanding speaker sensitivity](https://geoffthegreygeek.com/understanding-speaker-sensitivity/)
