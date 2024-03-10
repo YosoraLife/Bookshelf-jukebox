@@ -7,8 +7,8 @@
 | 1 | [IQaudIO Pi-DigiAMP+](https://www.raspberrypi.com/products/digiamp-plus/) <br>Also known as Raspberry Pi DigiAMP+  | €34,95  |
 | 1 | [Waveshare 7 inch QLED Touch Display](https://aliexpress.com/item/1005004634702269.html) <br>with development board | €77,50 |
 | 1 | [NFC PN532 kit](https://aliexpress.com/item/1005005973913526.html) | €4,65 |
-| 1 | Power supply 65W <br> the digiamp+ can take 12-24V DC, the official and <br>recommended power supply is 19V @3.4A| €24,95 |
-|   | **Subtotal** | **€187,00** |
+| 1 | Power supply 24V @4A *(see notes at the bottom)| €34,95 |
+|   | **Subtotal** | **€197,00** |
 
 ### Speaker components
 The speakers are based on the DIY speaker design "[Overnight Sensations](https://sites.google.com/site/undefinition/bookshelf-speakers/diy-overnightsensations)" 
@@ -49,4 +49,24 @@ The speakers are based on the DIY speaker design "[Overnight Sensations](https:/
 |   | **Subtotal** | **€123,58** |
 
 ### Plexamp jukebox
-**Total cost: €449,89**
+**Total cost: €459,89**
+
+
+Notes:
+
+*To be clear, use all this information at your own risk. I'm not an expert at in this matter at all, and I also rely on information I found online (see resources). So I highly recommend you do your own research in this matter.*
+
+*The digiamp+ can take any power supply ranging from 12-24V DC, with the recommended power supply being 19V, 3.4A (65 watt) DC. That being said, the input voltage does effect the output power per channel. Since the speakers are rated at 25 watts RMS and an impedance of 8 ohms. A recommended amplifier would need 37,5 watts per channel output. At 19V, 8 ohms the IQaudio DigiAmp+ povides an output of 21.3 watts. While at 24V, 8 ohms the IQaudio DigiAmp+ povides an output of 36 watts. And since there is a higher output it also requers a higher input, so a 24V, 4A (96 watt) DC power supply.
+
+But even with a supply voltage of 24V the IQaudio DigiAmp+ is slightly underpowered. So if you would want to use the speakers at maximum volume this could cause problems. But (at least for me) the point of a jukebox is to provide some background music and its not meant to be used at the maximum volume. So then what would the maximum volume be? Well the speakers have a sensitivity of 83 dB 1W/1m. Wich means that at a listing distince of 1 meter a single speaker has a maximum output level of 96,3dB@21,3 watts and 98,6dB@36 watts. Or at a more reasonable lisiting distance of 4 meters this becomes 84,3dB@21,3 watts or 86,6dB@36 watts.
+
+| Power supply voltage | Output power, 8 ohms | 1m listing distance  | 4m listing distance |
+| 19V | 2x 21,3 watts | 96,3dB | 84,3dB |
+| 24V | 2x 36 watts | 98,6dB | 86,6dB |
+
+For reference, sounds above 85dB are considered harmfull, while normal level to listen to music would be more around 70dB.
+
+Resources:
+[Choosing the right amplifier for your speakers](https://www.gear4music.com/blog/choosing-the-right-amplifier-for-your-speakers/)
+[TAS5756M Class-D Amplifier](https://www.ti.com/lit/ds/symlink/tas5756m.pdf?ts=1710011633785&ref_url=https%253A%252F%252Fforums.raspberrypi.com%252F)
+[Understanding speaker sensitivity](https://geoffthegreygeek.com/understanding-speaker-sensitivity/)
