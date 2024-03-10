@@ -61,6 +61,7 @@ Notes:
 But even with a supply voltage of 24V the IQaudio DigiAmp+ is slightly underpowered. So if you would want to use the speakers at maximum volume this could cause problems. But (at least for me) the point of a jukebox is to provide some background music and its not meant to be used at the maximum volume. So then what would the maximum volume be? Well the speakers have a sensitivity of 83 dB 1W/1m. Wich means that at a listing distince of 1 meter a single speaker has a maximum output level of 96,3dB@21,3 watts and 98,6dB@36 watts. Or at a more reasonable lisiting distance of 4 meters this becomes 84,3dB@21,3 watts or 86,6dB@36 watts.
 
 | Power supply voltage | Output power, 8 ohms | 1m listing distance  | 4m listing distance |
+| ------------- | ------------- | ------------- | ------------- |
 | 19V | 2x 21,3 watts | 96,3dB | 84,3dB |
 | 24V | 2x 36 watts | 98,6dB | 86,6dB |
 
