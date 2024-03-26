@@ -35,6 +35,7 @@ elif HSU:
     PN532_HSU = Pn532Hsu(Pn532Hsu.RPI_MINI_UART)
     nfc = Pn532(PN532_HSU)
 
+
 def setup():
   # Set variable to check if NFC module is found
   modulefound = False
@@ -56,7 +57,7 @@ def setup():
 if __name__ == '__main__':
     setup()
     while True:
-      authenticated = False               # Flag to indicate if the sector is authenticated
+      authenticated = False # Flag to indicate if the sector is authenticated
 
       # Keyb on NDEF and Mifare Classic should be the same
       keyuniversal = bytearray([ 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF ])

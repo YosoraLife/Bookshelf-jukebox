@@ -1,5 +1,4 @@
-# Bookshelf jukebox
-Powered by Plexamp
+# Bookshelf jukebox powered by Plexamp
 
 <img src="https://gitlab.com/YosoraLife/plexamp-jukebox/-/raw/main/_Resources/plexamp-jukebox.png" />
 

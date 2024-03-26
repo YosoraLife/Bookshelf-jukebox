@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-# Plexamp Jukebox controls
+# Jukebox controls
 
 import RPi.GPIO as GPIO
 import time
@@ -219,5 +219,4 @@ try:
 
         #########################################################
         ### END OF: Autoplay functionality ######################
-        #########################################################   
-
+        #########################################################
