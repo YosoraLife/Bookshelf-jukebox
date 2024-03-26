@@ -24,9 +24,11 @@ The speakers are based on the DIY speaker design "[Overnight Sensations](https:/
 | 2	| [Jantzen 1078 1.1mH 18 AWG](https://www.soundimports.eu/en/jantzen-audio-000-1078.html) | €18,90 |
 | 2	| [Dayton Audio ND20FA-6 Tweeter](https://www.soundimports.eu/en/dayton-audio-nd20fa-6.html) | €29,90 |
 | 2	| [HiVi B4N Aluminum Midbass](https://www.soundimports.eu/en/hivi-b4n.html) | €44,90 |
-| 2 | [Perforated PCB](https://www.soundimports.eu/nl/320-470.html) <br>Alternative: [Crossover PCB for the Overnight Sensations](https://www.ebay.com/itm/283420027089) | €5,90 <br> $20,00 (€18,70)|
+| 2 | [Perforated PCB 95*70mm](https://www.soundimports.eu/nl/320-470.html) <br>Alternative: [Crossover PCB for the Overnight Sensations](https://www.ebay.com/itm/283420027089) | €5,90 <br> $20,00 (€18,70)|
 | 1 | [Speaker damping](https://www.soundimports.eu/nl/monacor-mdm-2.html) | €10,45 |
-|   | **Subtotal** | **€139,31** |
+| 1 | 1 meter of 32mm PVC pipe for water drainage | €2,79 |
+| 2 | 90 degrees bend  for 32mm PVC pipe | €1,90 |
+|   | **Subtotal** | **€144** |
 
 ### Miscellaneous
 | Amount  | Item  | Total price |
@@ -46,10 +48,11 @@ The speakers are based on the DIY speaker design "[Overnight Sensations](https:/
 | 1 | [5.5x2.5mm panel mounted DC connector](https://aliexpress.com/item/4000694128319.html) | €0,75 |
 | 1 | [CAT6 ethernet panel mounted connector](https://aliexpress.com/item/1005005363341111.html) | €2,73 |
 | 1 | [Rubio Monocoat Oil Plus 2C Pure 100+30ml](https://www.rubiomonocoat.nl/oil-plus-2c) | €30,45 |
-|   | **Subtotal** | **€123,58** |
+| 1 | Matt white paint | €8,95 |
+|   | **Subtotal** | **€132,53** |
 
 ### Plexamp jukebox
-**Total cost: €459,89**
+**Total cost: €473,53**
 
 
 Notes:

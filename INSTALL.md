@@ -1,10 +1,13 @@
-# Installation instructions Plexamp jukebox
+# Installation instructions bookshelf jukebox
 
 [TOC]
 
 ## Prerequisites
+
 ### Plex
 This installation asummes that you have an active Plex server. [Plex](https://www.plex.tv) is software to manage your personal media collection (Movies, TV series and Music). Plex consist of 2 parts, a central server (Plex Media Server) to manage and stream the media. And the client to play the media. This installation uses Plex dedicated music player called Plexamp for the playback of music. To be able to use the headless version of Plexamp you do need an paid PlexPass subscription.
+
+*Note: Would you like to build this bookshelf jukebox but use other software instead? That is possible. But in that case you can skip the [Installation of (headless) Plexamp](https://gitlab.com/YosoraLife/bookshelf-jukebox/-/blob/main/INSTALL.md#installation-of-headless-plexamp) part of this installation guide. Also you will need to change the code in jukebox-startup-sh to display the correct website at startup and jukebox-controls.py to have the controls interact with the proper api.* 
 
 ### NFC reader
 The NFC reader was a bit tricky to setup, this code is tested, and meant to be used with:
@@ -13,7 +16,7 @@ The NFC reader was a bit tricky to setup, this code is tested, and meant to be u
 - a [Elechouse PN532 V3 NFC/RFID card reader](https://aliexpress.com/item/1005005973913526.html)
 
 ### Jukebox
-Take a look at the [Bill of Materials](/BOM.md) for a complete list of materials. Building plans for the jukebox itself can be found [here](/Building%20plans/Plexamp%20jukebox%20buildplan.pdf), and building plans for the speakers crossovers can be found [here](/Building%20plans/Speaker%20cross-over%20buildplan.jpg).
+Take a look at the [Bill of Materials](/BOM.md) for a complete list of materials. Building plans for the jukebox itself can be found [here](/Building%20plans/Plexamp%20jukebox%20buildplan.pdf), and building plans for the speakers crossovers can be found [here](/Building%20plans/Speaker%20cross-over%20buildplan.pdf).
 
 ## Wiring
 The IQaudio DigiAMP+ is connected directly to the Raspberry Pi GPIO header. The power is provided to the IQaudio DigiAMP+ (12-24V DC) that in its turn also provides power to the Raspberry Pi itself. The IQaudio DigiAMP+ also provide GPIO passthrough.
@@ -21,6 +24,7 @@ The IQaudio DigiAMP+ is connected directly to the Raspberry Pi GPIO header. The 
 The NFC reader, rotary encoder and 2 touch buttons need to be wired according to following GPIO pins:
 
 <img src="https://gitlab.com/YosoraLife/plexamp-jukebox/-/raw/main/_Resources/plexamp-jukebox-wiring.png" width="600"/>
+
 For reference pin 1 is on the SD card side and pin 40 is on the USB side.
 
 Note: The rotery button (sw) is connected BOTH to pin 5 and pin 29. When the Raspberry Pi is powered off it can be turned on by connecting pin 5 to ground. But when the Raspberry Pi is powered on pin 5 is exclusively used by the DAC and can therefore pin 29 is used instead.
@@ -222,12 +226,12 @@ sudo systemctl enable plexamp
 sudo systemctl start plexamp
 ```
 
-## Install Plexamp jukebox controls
+## Install the bookshelf jukebox controls
 Download the jukebox scripts:
 ```bash
 cd ~
-git clone https://gitlab.com/YosoraLife/plexamp-jukebox
-cd plexamp-jukebox
+git clone https://gitlab.com/YosoraLife/bookshelf-jukebox
+cd bookshelf-jukebox
 ```
 
 Install tools
@@ -298,7 +302,7 @@ splash quiet plymouth.ignore-serial-consoles logo.nologo vt.global_cursor_defaul
 Save file by ctrl+x > Yes
 
 ```bash
-sudo cp ~/plexamp-jukebox/plexamp-splash.png /usr/share/plymouth/themes/pix/splash.png
+sudo cp ~/bookshelf-jukebox/plexamp-splash.png /usr/share/plymouth/themes/pix/splash.png
 ```
 
 **Enable autoplay on boot**
@@ -318,7 +322,7 @@ Find the line `PLEX_ID = ''` and put your machineIdentifier between the quotes.
 On the next 2 lines you can enable/disable autoplay and set te initial starting volume when autoplay. 
 
 
-**Thorium**
+**Thorium**<br>
 The installation of Plexamp is headless, meaning without an graphical user interface (GUI). Yet through a webbrowser you can still access the GUI and control Plexamp. As webbrowser i decided to use [Thorium](https://thorium.rocks). Thorium is a optimized version of Chromium.
 
 Thorium is not without controversy though. More about this controversy [here](https://www.youtube.com/watch?v=Q-02fW-n4qg). Still I decided to use Thorium, why? First of all I believe the developer of Thorium made a mistake which he since then rectified. Secondly, and for me most importantly is (in my opinioun) the speed of Thorium unmatched compaired to Chromium.
@@ -333,18 +337,18 @@ sudo apt install ./thorium-browser.deb
 
 Setting up the startup script:
 
-Did you decide to use the Chromium browser instead of Thorium? Then you should edit the startup script with: `sudo nano plexamp-startup.sh`. Change the references to `thorium` into `chromium` (2x) and `thorium-browser` into `chromium-browser` (1x).
+Did you decide to use the Chromium browser instead of Thorium? Then you should edit the startup script with: `sudo nano jukebox-startup.sh`. Change the references to `thorium` into `chromium` (2x) and `thorium-browser` into `chromium-browser` (1x).
 
 Enable the startup script and make it start at boot:
 ```bash
-cd ~/plexamp-jukebox
-chmod u+x plexamp-startup.sh
+cd ~/jukebox-jukebox
+chmod u+x jukebox-startup.sh
 crontab -e 
 ```
 
 Add to the bottom:
 ```bash
-@reboot sleep 45 &&  /usr/bin/sh /home/pi/plexamp-jukebox/plexamp-startup.sh &
+@reboot sleep 45 &&  /usr/bin/sh /home/pi/bookshelf-jukebox/jukebox-startup.sh &
 ```
 note: Change `pi` to your own username. And save file by ctrl+x > Yes.
 
