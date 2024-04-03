@@ -167,7 +167,7 @@ nfc-poll
 ```bash
 sudo apt-get install -y ca-certificates curl gnupg && sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
-NODE_MAJOR=16
+NODE_MAJOR=20
 echo deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main | sudo tee /etc/apt/sources.list.d/nodesource.list
 sudo apt-get update && sudo apt-get install -y nodejs
 ```
@@ -176,11 +176,11 @@ Check if the right version is installed:
 ```bash
 node -v
 ```
-You should get a response like **v16.x.x** 
+You should get a response like **v20.x.x** 
 
 ### Install (headless) Plexamp:
 ```bash
-curl https://plexamp.plex.tv/headless/Plexamp-Linux-headless-v4.9.5.tar.bz2 > plexamp.tar.bz2
+curl https://plexamp.plex.tv/headless/Plexamp-Linux-headless-v4.10.1.tar.bz2 > plexamp.tar.bz2
 tar -xvf plexamp.tar.bz2
 ```
 
@@ -364,7 +364,22 @@ Use ctrl and the minus key (-) to zoom out until you see the buttons. Now contin
 
 After login in you can use the ctrl and the plus key (+) to zoom uit till 100% again. You can now detach the keyboard and enjoy your Plexamp jukebox.
 
-## Setup auto-update
+## Update plexamp
+Check the [plexamp download](https://www.plex.tv/nl/plexamp/#downloads) page to see the required NodeJS version
+
+Check if the right version is installed:
+```bash
+node -v
+```
+
+If needed update NodeJS
+```bash
+NODE_MAJOR=20
+echo deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main | sudo tee /etc/apt/sources.list.d/nodesource.list
+sudo apt-get update && sudo apt-get install -y nodejs
+```
+replace `20` with the required NodeJS version
+
 Install tools:
 ```bash
 sudo apt install jq
@@ -374,6 +389,7 @@ Check for update (one time):
 ```bash
 sh plexamp/upgrade.sh
 ```
+You can setup an automatic update run. This will only run the plexamp update script and it will not update NodeJS. Does Plexamp not work anymore after an update, then try running the NodeJS update commands and reboot the raspberry pi.
 
 Setup a weekly update run with crontab:
 ```bash
