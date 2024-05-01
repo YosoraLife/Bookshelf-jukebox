@@ -364,6 +364,21 @@ Use ctrl and the minus key (-) to zoom out until you see the buttons. Now contin
 
 After login in you can use the ctrl and the plus key (+) to zoom uit till 100% again. You can now detach the keyboard and enjoy your Plexamp jukebox.
 
+
+## Changing soundlevels
+Now these speakers can go LOUD! If you ask me, way too loud. I like to use this bookshelf speakers more as background music, and only occasionally turning op the volume. But even when i do turn the speaker i could never push them above 50% volume on Plexamp, while only being more around 5% volume at background music levels.
+
+This would make the volume know pretty useless of course. Luckily there is a way to manage this. You can adjust the maximum volume levels for the soundcard. By changing the maximum levels for the soundcard you can use the entire volume range on Plexamp.
+
+Open AlsaMixer:
+```bash
+alsamixer
+```
+
+Choose the soundcard by hitting F6 and selecting IQaudIODAC. You will now see different sound levels meters. Use the left and right arrow keys to select the "Digital" sound level meter, and use the up and down arrow keys to change the soundlevels. This can be done while playing music.
+
+When the desired level is set hit the ESC key to exit alsamixer.
+
 ## Update plexamp
 Check the [plexamp download](https://www.plex.tv/nl/plexamp/#downloads) page to see the required NodeJS version
 

@@ -15,8 +15,9 @@ sed -i 's/"exit_type":"Crashed"/"exit_type":"Normal"/' /home/$USER/.config/thori
 # Open a single tab
 /usr/bin/thorium-browser --noerrdialogs --disable-infobars --kiosk http://localhost:32500/ &
 
-/usr/bin/python3 /home/$USER/bookshelf-jukebox/jukebox-controls.py &
-/usr/bin/python3 /home/$USER/bookshelf-jukebox/jukebox-nfc-reader.py &
+/usr/bin/python3 /home/$USER/bookshelf-jukebox/controls.py &
+/usr/bin/python3 /home/$USER/bookshelf-jukebox/screen.py &
+/usr/bin/python3 /home/$USER/bookshelf-jukebox/nfc_reader.py &
 
 # Allow switching between tabs on buttonpress
 # /usr/bin/chromium-browser --noerrdialogs --disable-infobars --kiosk http://localhost:32500/ http://localhost/settings &
