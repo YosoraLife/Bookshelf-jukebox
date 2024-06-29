@@ -253,7 +253,7 @@ show_mounts=1
 ```
 to:
 ```bash
-wallpaper=/home/pi/plexamp-jukebox/plexamp-splash.png
+wallpaper=/home/pi/bookshelf-jukebox/plexamp-splash.png
 show_documents=0
 show_trash=0
 show_mounts=0
