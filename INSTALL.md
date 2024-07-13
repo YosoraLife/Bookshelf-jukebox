@@ -314,8 +314,8 @@ http://[IP address]:32400/identity/
 ```
 Edit the Plexamp controls:
 ```bash
-cd ~/plexamp-jukebox
-sudo nano plexamp-controls.py
+cd ~/bookshelf-jukebox
+sudo nano controls.py
 ```
 
 Find the line `PLEX_ID = ''` and put your machineIdentifier between the quotes.
@@ -337,11 +337,11 @@ sudo apt install ./thorium-browser.deb
 
 Setting up the startup script:
 
-Did you decide to use the Chromium browser instead of Thorium? Then you should edit the startup script with: `sudo nano jukebox-startup.sh`. Change the references to `thorium` into `chromium` (2x) and `thorium-browser` into `chromium-browser` (1x).
+Did you decide to use the Chromium browser instead of Thorium? Then you should edit the startup script with: `sudo nano jukebox-startup.sh`. Change the references to `thorium` into `chromium` (2x) and `thorium-browser` into `chromium` (1x).
 
 Enable the startup script and make it start at boot:
 ```bash
-cd ~/jukebox-jukebox
+cd ~/bookshelf-jukebox
 chmod u+x jukebox-startup.sh
 crontab -e 
 ```
