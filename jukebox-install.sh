@@ -4,11 +4,11 @@
 ### START OF INSTALL CONTROLS ###
 #################################
 
-cd ~
+cd /home/dietpi/
 
 # Install tools
-sudo apt install -y python3 pip gcc-arm-linux-gnueabihf plymouth plymouth-themes jq
-pip install pn532pi curlify requests
+sudo apt install -y python3 python3-spidev pip plymouth plymouth-themes jq
+sudo pip install pn532pi curlify requests
 
 # Download the jukebox scripts:
 git clone https://gitlab.com/YosoraLife/bookshelf-jukebox
@@ -40,7 +40,7 @@ sudo G_CONFIG_INJECT 'xinit[[:blank:]]' 'xinit $FP_CHROMIUM $CHROMIUM_OPTS -- -n
 ### START OF INSTALL PLEXAMP ###
 ################################
 
-cd ~
+cd /home/dietpi/
 
 # Install NodeJS
 sudo apt-get install -y ca-certificates curl gnupg && sudo mkdir -p /etc/apt/keyrings
