@@ -133,26 +133,28 @@ Here you can also change the short and long press duration, the volume adjustmen
 
 ### Changing sound levels
 
-Now these speakers can go LOUD! If you ask me, way too loud. I like to use this bookshelf speakers more as background music, and only occasionally turning op the volume. But even when i do turn the speaker i could never push them above 50% volume on Plexamp, while only being more around 5% volume at background music levels.
+Now these speakers can go LOUD! If you ask me, way too loud. I like to use this bookshelf speakers more as background music, and only occasionally turning op the volume. But even when I do turn up the volume I could never push them above 50% volume on Plexamp, while only being more around 5% volume at background music levels.
 
-This would make the volume know pretty useless of course. Luckily there is a way to manage this. You can adjust the maximum volume levels for the soundcard. By changing the maximum levels for the soundcard you can use the entire volume range on Plexamp.
+This would make the volume knob pretty useless of course. Luckily there is a way to manage this. You can adjust the maximum volume levels for the soundcard. By changing the maximum levels for the soundcard you can use the entire volume range on Plexamp.
 
 Open AlsaMixer:
 ```bash
 alsamixer
 ```
 
-Choose the sound card by hitting F6 and selecting IQaudIODAC. You will now see different sound levels meters. Use the left and right arrow keys to select the "Digital" sound level meter, and use the up and down arrow keys to change the sound levels. This can be done while playing music.
+Choose the sound card by hitting `F6` and selecting IQaudIODAC. You will now see different sound levels meters. Use the left and right arrow keys to select the "Digital" sound level meter, and use the up and down arrow keys to change the sound levels. This can be done while playing music. I set mine to 67%.
 
 When the desired level is set hit the ESC key to exit alsamixer.
 
 ## Controlling the Jukebox
-There are several ways of controlling the jukebox. 
+
+### Turning off/on
+If you build your jukebox just like mine you will have a power toggle at the back, and at the front a volume control knob and a previous/next touch button. DO NOT use the power toggle to shutdown the Raspberry Pi, this can cause a corrupt SD card! 
+
+The correct way of shutting down is to long press the volume knob until the system is in idle state. Only then it's safe to turn off the power toggle. When the power toggle is turned on it will automatically boot the system. Alternatively if the system is still in idle state it can be turned back on by pressing the volume knob.
 
 ### Physical controls
-If you build your jukebox just like mine you will have a Power toggle at the back, and at the front a volume control knob and a previous/next touch button. DO NOT use the power toggle to shutdown the Raspberry Pi, this can cause a corrupt SD card! 
-
-The correct way of shutting down is to long press the power knob until the system is in idle state. Only then it's safe to turn off the power toggle. When the power toggle is turned on it will automatically boot the system. Alternatively if the system is still in idle state it can be turned back on by pressing the volume knob.
+You can use the touchscreen, volume knob and previous/next touch buttons. The volume knob also doubles as play/pause (short press) or off/on (long press).
 
 ### Control by phone
 You can control the jukebox with the Plexamp app for both iPhone and Android. Use the cast function in the app and select the jukebox. Your phone will now work as a remote for the jukebox.
