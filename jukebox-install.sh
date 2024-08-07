@@ -47,7 +47,7 @@ cd bookshelf-jukebox
 chmod u+x jukebox-startup.sh
 
 # Add startup script to crontab
-(crontab -l; echo "@reboot /usr/bin/sh /home/dietpi/bookshelf-jukebox/jukebox-startup.sh &")|awk '!x[$0]++'|crontab -
+(crontab -l; echo "@reboot /usr/bin/sh /root/bookshelf-jukebox/jukebox-startup.sh &")|awk '!x[$0]++'|crontab -
 
 # Set quiet startup screen:
 sudo sed -i 's/console=tty1/console=tty3 splash quiet plymouth.ignore-serial-consoles logo.nologo vt.global_cursor_default=0/' /boot/cmdline.txt
