@@ -29,4 +29,4 @@ Impedance: 8 ohms<br>
 Frequency response: 45-20,000 Hz (-3 dB)<br>
 Sensitivity: 83 dB 1W/1m
 
-<img src="https://gitlab.com/YosoraLife/plexamp-jukebox/-/raw/main/_Resources/bookshelf-jukebox-finished.png" />
+<img src="https://gitlab.com/YosoraLife/plexamp-jukebox/-/raw/main/_Resources/bookshelf-jukebox-finished.jpg" />
