@@ -1,6 +1,6 @@
 # Bookshelf jukebox powered by Plexamp
 
-<img src="https://gitlab.com/YosoraLife/plexamp-jukebox/-/raw/main/_Resources/plexamp-jukebox.png" />
+<img src="https://gitlab.com/YosoraLife/plexamp-jukebox/-/raw/main/_Resources/bookshelf-jukebox.png" />
 
 ### Plex and Plexamp
 
@@ -28,3 +28,5 @@ Power handling: 25 watts RMS/50 watts max<br>
 Impedance: 8 ohms<br>
 Frequency response: 45-20,000 Hz (-3 dB)<br>
 Sensitivity: 83 dB 1W/1m
+
+<img src="https://gitlab.com/YosoraLife/plexamp-jukebox/-/raw/main/_Resources/bookshelf-jukebox-finished.png" />
