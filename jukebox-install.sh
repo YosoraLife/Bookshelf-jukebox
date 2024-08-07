@@ -89,10 +89,10 @@ node plexamp/js/index.js
 # User interaction required, fill in claim code and name player
 
 # Change username
-sudo sed -i 's/pi/dietpi/' plexamp/plexamp.service
+sudo sed -i 's/pi/root/' plexamp/plexamp.service
 
-# Change root user for Plexamp upgrade script
-sudo sed -i 's/\/home\//\//' plexamp/upgrade.sh
+# Change root user location
+sudo sed -i 's/\/home\//\//' plexamp/plexamp.service
 
 # Enable the startup script and start Plexamp:
 sudo cp plexamp/plexamp.service /lib/systemd/system/
