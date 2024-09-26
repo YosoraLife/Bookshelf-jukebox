@@ -4,14 +4,14 @@
 # Times for button presses
 SHORT_PRESS_TIME = 1.5                      # Time for shortpress in seconds
 LONG_PRESS_TIME = 2.0                       # Time for longpress in seconds
-DEBOUNCE_TIME = 0.1                         # Debounce time, default = 0.1. Increase when experience unwanted "extra" button presses 
+DEBOUNCE_TIME = 100                          # Debounce time in mili seconds, default = 100. Increase when experience unwanted "extra" button presses 
 
 # Volume steps
 VOLUME_ADJUSTEMENT = 3                      # How much to add to the volume every step. Range: 0-100
 
 # At boot there is no playlist yet. For autoplay library radio to work you need the machineIdentifier of your plexserver
 PLEX_ID = ''                                # Find the machineIdentifier at http://[IP address]:32400/identity/
-AUTOPLAY = 0                                # 0 = Autoplay on start, 1 = No autoplay on start
+AUTOPLAY = 0                                # 0 = Autoplay on start (dont forget to fill in your PLEX_ID), 1 = No autoplay on start
 START_VOLUME = 10                           # Set volume level at start Range: 1-100, 0 = disable
 
 # Screen backlight control
