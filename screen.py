@@ -1,51 +1,54 @@
 #! /usr/bin/env python3
-# Bookshelf jukebox screencontrol
-
+# Bookshelf jukebox screen control
 
 import time
 import settings
-from functions import getState,setScreen
+from functions import getState, setScreen
 
+##########################################################################################################
+####### DONT CHANGE THE SETTINGS INBETWEEN THESE LINES. INSTEAD CHANGE THE SETTINGS IN SETTINGS.PY #######
 
 # Screen backlight control
-SCREEN_TIMEOUT = settings.SCREEN_TIMEOUT    # Turn screen backlight off after * minutes
+SCREEN_TIMEOUT = settings.SCREEN_TIMEOUT                            # Turn screen backlight off after * minutes
 
-# Initial state setup
-SCREEN_TIMEOUT_START = time.time()          # Start tracking the time
-PB_PREV_STATE = 'paused'                    # Assume the player is in a paused state
-setScreen('on')                             # Start with the screen on
+####### DONT CHANGE THE SETTINGS INBETWEEN THESE LINES. INSTEAD CHANGE THE SETTINGS IN SETTINGS.PY #######
+##########################################################################################################
 
+###################################################
+### Initial state setup ###########################
+###################################################
+SCREEN_TIMEOUT_START = time.time()                                  # Start tracking of the time
+PB_PREV_STATE = 'paused'                                            # Assume the initial state of the player is paused
+setScreen('on')                                                     # Start with the screen on
 
+###################################################
+### Paused state handeling ########################
+###################################################
+def handle_paused_state():
+    global SCREEN_TIMEOUT_START
+    screen_timeout_duration = time.time() - SCREEN_TIMEOUT_START    # Calculate the time duration since last pause
+    if screen_timeout_duration > (SCREEN_TIMEOUT * 60):             # Check if timeout time is already exceeded
+        setScreen('off')                                            # Turn off screen
 
-#########################################################
-### START OF: Screen backlight control ##################
-#########################################################
+###################################################
+### Playing state handeling #######################
+###################################################
+def handle_playing_state():
+    setScreen('on')                                                 # Turn on screen, playback has started
+
 while True:
+    current_state = getState('state')                               # Get the current state
+    print(current_state)
 
-    # Still being paused
-    if getState('state') == 'paused' and PB_PREV_STATE == 'paused':
+    if current_state == 'playing':                                  # State is playing
+        if PB_PREV_STATE != 'playing':                              # Previous state was not playing
+            PB_PREV_STATE = 'playing'                               # Set new previous state variable
+            handle_playing_state()                                  # Turn on screen, playback has started
 
-        # Check if timeout time is already exceded
-        screen_timeout_duration = time.time() - SCREEN_TIMEOUT_START
-        if screen_timeout_duration > (SCREEN_TIMEOUT * 60):
-            setScreen('off')
+    else:                                                           # If state is paused or stopped
+        if PB_PREV_STATE == 'playing':                              # Previous state was playing
+            PB_PREV_STATE = 'paused'                                # Set new previous state variable
+            SCREEN_TIMEOUT_START = time.time()                      # Reset tracking of the time
+        handle_paused_state()                                       # Check if the screen should turn off after timeout
 
-
-    # Being paused again
-    elif getState('state') == 'paused' and PB_PREV_STATE == 'playing':
-
-        # Set state variables
-        PB_PREV_STATE = 'paused'
-        SCREEN_TIMEOUT_START = time.time() # Start tracking the time
-
-
-    # Started playing again
-    elif getState('state') == 'playing' and PB_PREV_STATE == 'paused':
-
-        # Turn on screen
-        setScreen('on')
-        # Reset state variables
-        PB_PREV_STATE = 'playing'
-
-    # Run loop once a second
-    time.sleep(1)
+    time.sleep(5)                                                   # Run loop once every 5 seconds to reduce CPU usage

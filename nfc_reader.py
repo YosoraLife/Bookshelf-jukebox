@@ -1,18 +1,8 @@
 #! /usr/bin/env python3
 
 """
-    This code is tested, and meant to be used with:
-    - a Mifare Classic 1K card
-    - a Elechouse PN532 V3 NFC/RFID card reader
-
-    The NFC card can be writen with an (android) phone to contain a
-    plexamp playlist URL. This code attempts to read the contents of 
-    the NFC card and convert is back to a URL and open the URL.
-
-    Note that you need the baud rate to be 115200 because we need to print
-    out the data and read from the card at the same time!
-
-    This code is a modified version of https://github.com/gassajor000/pn532pi/blob/master/examples/mifareclassic_memdump.py
+    NFC Reader for Mifare Classic 1K cards using Elechouse PN532 V3 NFC/RFID card reader.
+    Reads and converts the contents of the NFC card back to a URL and opens it.
 """
 
 import curlify
@@ -26,108 +16,87 @@ from pn532pi import Pn532Spi
 SPI = True
 HSU = False
 
-# Config when the NFC reader is connected through SPI mode
+# Configure NFC reader connection mode (SPI or HSU)
 if SPI:
     PN532_SPI = Pn532Spi(Pn532Spi.SS0_GPIO8)
     nfc = Pn532(PN532_SPI)
-# Config when the NFC reader is connected through HSU Mode
 elif HSU:
     PN532_HSU = Pn532Hsu(Pn532Hsu.RPI_MINI_UART)
     nfc = Pn532(PN532_HSU)
 
 
 def setup():
-  # Set variable to check if NFC module is found
-  modulefound = False
-  # Keep looping until module is found
-  while (not modulefound):
-    nfc.begin()
-    versiondata = nfc.getFirmwareVersion()
-    # Check if version is found
-    if (versiondata):
-      # Module is found, break loop
-      modulefound = True
+    """Setup NFC module and wait until it is found."""
+    module_found = False
+    retries = 10  # Max retries to avoid indefinite looping
+    while not module_found and retries > 0:
+        nfc.begin()
+        version_data = nfc.getFirmwareVersion()
+        if version_data:
+            module_found = True
+        else:
+            retries -= 1
+            time.sleep(1)
+    if module_found:
+        nfc.SAMConfig()
     else:
-      # wait a second for the next check
-      time.sleep(1)
-
-  nfc.SAMConfig()      
+        print("Error: NFC module not found. Exiting.")
+        exit(1)
 
 
 if __name__ == '__main__':
     setup()
+
+    key_universal = bytearray([0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF])
+
     while True:
-      authenticated = False # Flag to indicate if the sector is authenticated
+        authenticated = False
+        data_strings = ['http://']  # Collect strings in a list for better efficiency
 
-      # Keyb on NDEF and Mifare Classic should be the same
-      keyuniversal = bytearray([ 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF ])
-      # Set an empty data string for all the data to collect in
-      data_string = 'http://'
+        success, uid = nfc.readPassiveTargetID(pn532.PN532_MIFARE_ISO14443A_106KBPS)
+        if success and len(uid) == 4:
+            block_count = 0
+            empty_block_count = 0
 
-      # Wait for an ISO14443A type cards (Mifare, etc.).  When one is found
-      # if the uid is 4 bytes (Mifare Classic)
-      success, uid = nfc.readPassiveTargetID(pn532.PN532_MIFARE_ISO14443A_106KBPS)
+            # Try to read all 16 sectors (each sector has 4 blocks)
+            for current_block in range(64):
+                if block_count == 3:
+                    block_count = 0  # Skip every 4th block (authentication block)
+                    continue
+                block_count += 1
 
-      if (success):
-        if (len(uid) == 4):
+                if nfc.mifareclassic_IsFirstBlock(current_block):
+                    authenticated = False
 
-          # Set blockcounter to skip every 4th block
-          blockcount = 0
-          # Stop processing when 4 consecutive empty blocks are found
-          emptyblockcount = 0
+                # Authenticate if needed
+                retry_limit = 3
+                while not authenticated and current_block > 3 and retry_limit > 0:
+                    success = nfc.mifareclassic_AuthenticateBlock(uid, current_block, 1, key_universal)
+                    if success:
+                        authenticated = True
+                    else:
+                        retry_limit -= 1
 
-          # Now we try to go through all 16 sectors (each having 4 blocks)
-          for currentblock in range(64):
-            if (blockcount == 3):
-              # Reset counter and skip
-              blockcount = 0
-            else:
-              # Add to blockcount and proceed
-              blockcount += 1
+                if authenticated:
+                    empty_block = bytearray([0x00] * 16)
+                    success, data = nfc.mifareclassic_ReadDataBlock(current_block)
 
-              # Check if this is a new block so that we can reauthenticate
-              if (nfc.mifareclassic_IsFirstBlock(currentblock)):
-                authenticated = False
+                    if data == empty_block:
+                        empty_block_count += 1
+                        if empty_block_count > 3:
+                            break  # Stop if more than 3 consecutive empty blocks are found
+                    elif success:
+                        empty_block_count = 0
+                        if current_block == 4:
+                            data = data[7:]  # Skip first 7 bytes (start of data)
+                        data_strings.append(data.decode('utf8', 'ignore'))
 
-              # Keep trying to authenticated the block until authentication succeeded
-              while (not authenticated and currentblock > 3):
-                success = nfc.mifareclassic_AuthenticateBlock (uid, currentblock, 1, keyuniversal)
-                if (success):
-                  authenticated = True       
-                
-              if (authenticated):
-                # Authenticated ... we should be able to read the block now
-                # Skip reading empty blocks 
-                emptyblock = bytearray([ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 ])
-                
-                # Dump the data into the 'data' array
-                success, data = nfc.mifareclassic_ReadDataBlock(currentblock)
+        if data_strings:
+            url = ''.join(data_strings).replace("listen.plex.tv", "localhost:32500")
+            try:
+                response = requests.get(url)
+                print(curlify.to_curl(response.request))
+            except requests.RequestException as e:
+                print(f"Error opening URL: {e}")
 
-                if (data == emptyblock):
-                  # If block is empty add to counter
-                  emptyblockcount += 1
-                  if (emptyblockcount > 3):
-                    # 4 empty blocks in a row, break from the loop
-                    break
-                else:
-                  if (success):
-                    # Block contains data, reset emptyblockcount
-                    emptyblockcount = 0
-                    # Read successful
-                    if (currentblock == 4):
-                      # On the 4th block (start of our data), remove the first 7 characters
-                      data = data[7:]
-                    # convert data to string
-                    string_object = data.decode('utf8', 'ignore')
-                    # Add string to the other strings
-                    data_string = data_string + string_object
-
-        # Replace listen.plex.tv for localhost so the link will open on the local device
-        data_string = data_string.replace("listen.plex.tv", "localhost:32500")
-
-        # Open the link
-        response = requests.get(data_string)
-        print(curlify.to_curl(response.request))
-
-        # Sleep for 3 seconds
-        time.sleep(3)
+        time.sleep(3)  # Sleep before the next read attempt
