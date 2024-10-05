@@ -10,8 +10,6 @@
 ### Plex
 This installation asummes that you have an active Plex server. [Plex](https://www.plex.tv) is software to manage your personal media collection (Movies, TV series and Music). Plex consist of 2 parts, a central server (Plex Media Server) to manage and stream the media. And the client to play the media. This installation uses Plex dedicated music player called Plexamp for the playback of music. To be able to use the headless version of Plexamp you do need an paid PlexPass subscription.
 
-*Note: Would you like to build this bookshelf jukebox but use other software instead? That is possible. But in that case you can skip the [Installation of (headless) Plexamp](https://gitlab.com/YosoraLife/bookshelf-jukebox/-/blob/main/INSTALL.md#installation-of-headless-plexamp) part of this installation guide. Also you will need to change the code in jukebox-startup-sh to display the correct website at startup and jukebox-controls.py to have the controls interact with the proper api.*
-
 ### NFC reader
 The NFC reader was a bit tricky to setup, this code is tested, and meant to be used with:
 
@@ -33,7 +31,7 @@ For reference pin 1 is on the SD card side and pin 40 is on the USB side.
 Note: The rotery button (sw) is connected BOTH to pin 5 and pin 29. When the Raspberry Pi is powered off it can be turned on by connecting pin 5 to ground. But when the Raspberry Pi is powered on pin 5 is exclusively used by the DAC and can therefore pin 29 is used instead.
 
 ## Installation of the hardware
-Download the [DietPi Bookworm](https://dietpi.com/#downloadinfo) image for Raspberry Pi 2/3/4/Zero 2 (ARMv8). unzip it with a tool like[7Zip](https://www.7-zip.org). I always prefer to use [rufus](https://rufus.ie/) to flash the dietpi.img to a SD card. Wait for the flashing process to be finished.
+Download the [DietPi Bookworm](https://dietpi.com/#downloadinfo) image for Raspberry Pi 2/3/4/Zero 2 (ARMv8). unzip it with a tool like [7Zip](https://www.7-zip.org). I always prefer to use [rufus](https://rufus.ie/) to flash the dietpi.img to a SD card. Wait for the flashing process to be finished.
 
 Dietpi has some great way to automate the setup process. Follow the follow steps in order to make use of that:
 
