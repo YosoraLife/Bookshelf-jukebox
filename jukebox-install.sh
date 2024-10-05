@@ -36,7 +36,7 @@ sudo make install all
 cd ~
 
 # Install control tools
-sudo apt install -y python3 python3-spidev pip plymouth plymouth-themes jq
+sudo apt install -y python3 python3-spidev pip plymouth plymouth-themes jq unclutter
 sudo pip install pn532pi curlify requests
 
 # Download the jukebox scripts:
@@ -47,7 +47,7 @@ cd bookshelf-jukebox
 chmod u+x jukebox-startup.sh
 
 # Add startup script to crontab
-(crontab -l; echo "@reboot /usr/bin/sh /home/dietpi/bookshelf-jukebox/jukebox-startup.sh &")|awk '!x[$0]++'|crontab -
+(crontab -l; echo "@reboot /usr/bin/sh /root/bookshelf-jukebox/jukebox-startup.sh &")|awk '!x[$0]++'|crontab -
 
 # Set quiet startup screen:
 sudo sed -i 's/console=tty1/console=tty3 splash quiet plymouth.ignore-serial-consoles logo.nologo vt.global_cursor_default=0/' /boot/cmdline.txt
@@ -59,7 +59,6 @@ sudo plymouth-set-default-theme -R spinner
 sudo cp ~/bookshelf-jukebox/plexamp-splash.png /usr/share/plymouth/themes/spinner/watermark.png
 
 # Hide mouse
-# G_CONFIG_INJECT 'xinit[[:blank:]]' 'xinit $FP_CHROMIUM $CHROMIUM_OPTS -- -nocursor' /var/lib/dietpi/dietpi-software/installed/chromium-autostart.sh
 G_AGI unclutter && echo '/usr/bin/unclutter -idle 0.1 &' > /etc/chromium.d/dietpi-unclutter
 
 ###############################
