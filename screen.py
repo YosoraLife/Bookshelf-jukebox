@@ -38,7 +38,6 @@ def handle_playing_state():
 
 while True:
     current_state = getState('state')                               # Get the current state
-    print(current_state)
 
     if current_state == 'playing':                                  # State is playing
         if PB_PREV_STATE != 'playing':                              # Previous state was not playing
