@@ -125,7 +125,7 @@ GPIO.add_event_detect(PREV_PIN, GPIO.FALLING, callback=prev_button_callback, bou
 ###################################################
 ### Autoplay at startup if enabled ################
 ###################################################
-# autoplay()
+autoplay()
 
 try:
     while True:
