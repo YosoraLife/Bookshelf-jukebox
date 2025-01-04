@@ -79,7 +79,7 @@ echo deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com
 sudo apt-get update && sudo apt-get install -y nodejs
 
 # Install Plexamp
-curl https://plexamp.plex.tv/headless/Plexamp-Linux-headless-v4.11.1.tar.bz2 > plexamp.tar.bz2
+curl https://plexamp.plex.tv/headless/Plexamp-Linux-headless-v4.11.5.tar.bz2 > plexamp.tar.bz2
 tar -xvf plexamp.tar.bz2
 
 # Start Plexamp for the first time
